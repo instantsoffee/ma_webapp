@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+<body>
+
+<table id="my_table" class="display" style="width:100%"> 
+	<thead> 
+	<tr> 
+		<th>Ticker</th> 
+		<th>Domain</th> 
+		<th>Index</th> 
+		<th>Date</th> 
+		<th>+-1%SMA50</th> 
+		<th>+-2%SMA150</th> 
+		<th>stoch 14-6-6</th> 
+		<th>stoch 5-3-3</th> 
+		<th>RSI 14</th> 
+		<th>RSI 10</th> 
+		<th>MACD</th> 
+		<th>BB</th> 
+		<th>SAR</th> 
+		<th>Engulfing</th> 
+		<th>Y_MA20+</th> 
+		<th>M_MA20+</th> 
+	</tr> 
+	</thead> 
+</table>  
+<script> 
+
+var file = {{filename}}
+
+function setupData()
+{     $(document).ready(function ()
+{ 
+$('#my_table').DataTable({ 
+  "ajax": { 
+    "url": {{ url_for('uploads' + file) }}, 
+     "dataType": "json", 
+	 "dataSrc": "data"}, 
+
+                      "columns": [
+                                       {"data": "Ticker"}, 
+                                  {"data": "Domain"}, 
+                                       {"data": "Index"}, 
+                                             {"data": "Date"}, 
+                                 {"data": "+-1%SMA50"}, 
+                                         {"data": "+-2%SMA150"} 
+                                                    {"data": "stoch 14-6-6"}, 
+                               {"data": "stoch 5-3-3"}, 
+                                       {"data": "RSI 14}, 
+                                         {"data": "RSI 10"}, 
+                                 {"data": "MACD"}, 
+                                       {"data": "BB"} 
+                                            {"data": "SAR"}, 
+                                     {"data": "Engulfing"}, 
+                                      {"data": "Y_MA20+"}, 
+                                      {"data": "M_MA20+"}, 
+                                      ]         }); 
+                                       }); } 
+
+                                       $( window ).on( "load", setupData );
+                                        </script>
+
+</html>
