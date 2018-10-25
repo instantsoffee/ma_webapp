@@ -250,12 +250,6 @@ def uploaded_file(filename):
 
 
 
-
-#@app.route("/tables")
-#def show_tables(file):
-    #data = screen_second(file, '2017, 9, 2', '2018, 9, 2' )
-    #return render_template('view_tables.html', name = 'Screen', data = data.to_html())
-
 if __name__ == "__main__":
     app.run(debug=True)
 
