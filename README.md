@@ -1,2 +1,2 @@
-# market-analysis-web-app
+# market analysis web app
 work in progress
